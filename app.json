@@ -1,7 +1,11 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/creative/home/home",
+    "pages/form/home/home",
+    "pages/my/logs/logs",
+    "pages/my/home/home",
+    "pages/my/setting/setting"
   ],
   "window":{
     "backgroundTextStyle":"light",

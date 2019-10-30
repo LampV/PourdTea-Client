@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "creative": "/pages/creative/home/home",
+    "form": "/pages/form/home/home",
+    "my": "/pages/my/home/home"
+  }
 }
