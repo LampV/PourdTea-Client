@@ -1,0 +1,4 @@
+.creative-scrollview{
+    width: 100%;
+    padding: 10rpx 50rpx;
+}

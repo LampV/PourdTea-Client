@@ -13,8 +13,11 @@ Page({
     this.setData({
       curIcon: this.data.iconArray[0],
     })
+    qq.showShareMenu({
+      showShareItems: ['qq', 'qzone', 'wechatFriends', 'wechatMoment']
+    })
   },
-  barIconTap: function(e){
+  barIconTap: function (e) {
     this.setData({
       curIcon: e.target.dataset.icon,
     })

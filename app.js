@@ -32,6 +32,16 @@ App({
         }
       }
     })
+    // 设置remote url
+    qq.getSystemInfo({
+      success: res => {
+        if(res.brand == 'devtools'){
+          this.globalData.remoteIp = 'http://127.0.0.1:5000'
+        }else{
+          this.globalData.remoteIp = 'https//www.hyunee.top:5000'
+        }
+      }
+    })
   },
   globalData: {
     userInfo: null

@@ -1,5 +1,13 @@
-<view class="container">
-    <view class="usermotto">
-        <text class="user-motto">This is page 'scan'</text>
+<scroll-view class="creative-scrollview">
+    <view class="poems-container">
+        <view wx:for="{{poem_list}}" wx:for-item="poem" wx:key="{{poem}}" class="poem-container">
+            <view class="poem-title"> {{poem.title}} </view>
+            <view class="poem-author-info">
+            <view class="poem-dynasty"> {{poem.dynasty}} </view>
+            <view class="poem-author"> {{poem.author}} </view>
+            </view>
+            <view class="poem-abstract"> {{poem.abstract}} </view>
+        </view>
     </view>
-</view>
+    <view class="cu-tabbar-height"></view>
+</scroll-view>
