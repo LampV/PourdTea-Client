@@ -1,14 +1,11 @@
 //获取应用实例
 const app = getApp()
 
-Component({
+Page({
   data: {
     page: 0
   },
-  options: {
-    addGlobalClass: true,
-  },
-  attached: function () {
+  onLoad: function () {
     let remoteUrl = app.globalData.remoteIp + '/poem/list/sample'
     qq.request({
       url: remoteUrl,

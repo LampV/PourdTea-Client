@@ -1,5 +1,5 @@
 .creative-scrollview{
-    width: 100%;
+    width: 750rpx;
     padding: 0rpx 10rpx;
     background-color: #FAFAFB; 
 }

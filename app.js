@@ -12,6 +12,9 @@ App({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
+    qq.showShareMenu({
+      showShareItems: ['qq', 'qzone', 'wechatFriends', 'wechatMoment']
+    })
     // 获取用户信息
     qq.getSetting({
       success: res => {
@@ -36,9 +39,9 @@ App({
     qq.getSystemInfo({
       success: res => {
         let useDev = true;
-        if(res.brand == 'devtools' && useDev){
+        if (res.brand == 'devtools' && useDev) {
           this.globalData.remoteIp = 'http://127.0.0.1:5000'
-        }else{
+        } else {
           this.globalData.remoteIp = 'https://hyunee.top:5000'
         }
       }
