@@ -2,11 +2,11 @@
 const app = getApp()
 
 Component({
-  options: {
-    addGlobalClass: true,
-  },
   data: {
     page: 0
+  },
+  options: {
+    addGlobalClass: true,
   },
   attached: function () {
     let remoteUrl = app.globalData.remoteIp + '/poem/list/sample'

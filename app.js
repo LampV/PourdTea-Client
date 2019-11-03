@@ -39,7 +39,7 @@ App({
         if(res.brand == 'devtools' && useDev){
           this.globalData.remoteIp = 'http://127.0.0.1:5000'
         }else{
-          this.globalData.remoteIp = 'https//www.hyunee.top:5000'
+          this.globalData.remoteIp = 'https://hyunee.top:5000'
         }
       }
     })
