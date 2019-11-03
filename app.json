@@ -1,16 +1,37 @@
 {
-  "pages":[
-    "pages/index/index",
+  "pages": [
     "pages/creative/home/home",
+    "pages/index/index",
     "pages/form/home/home",
     "pages/my/logs/logs",
     "pages/my/home/home",
     "pages/my/setting/setting"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "tabBar": {
+    "custom": true,
+    "color": "#FFFFFF",
+    "selectedColor": "#FFFFFF",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/creative/home/home",
+        "text": "推荐"
+      },
+      {
+        "pagePath": "pages/form/home/home",
+        "text": "文库"
+      },
+      {
+        "pagePath": "pages/my/home/home",
+        "text": "我的"
+      }
+    ],
+    "usingComponents":{}
+  },
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "QQ小程序",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   }
 }
