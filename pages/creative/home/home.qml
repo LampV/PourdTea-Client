@@ -1,4 +1,4 @@
-<view class="creative-scrollview">
+<view class="container creative-scrollview">
     <scroll-view>
         <view class="poems-container">
             <block wx:for="{{poem_list}}" wx:for-item="poem" wx:key="{{poem}}">
