@@ -1,11 +1,12 @@
 {
   "pages": [
     "pages/creative/home/home",
-    "pages/index/index",
     "pages/form/home/home",
     "pages/my/logs/logs",
     "pages/my/home/home",
-    "pages/my/setting/setting"
+    "pages/my/setting/setting",
+    "pages/poem/poem",
+    "pages/index/index"
   ],
   "tabBar": {
     "custom": true,
