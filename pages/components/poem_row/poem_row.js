@@ -12,8 +12,11 @@ Component({
         addGlobalClass: true,
     },
     methods: {
-        navToPoem(e) {
+        componentNavToPoem(e) {
             console.log('nav to poem ', e.currentTarget.dataset.poemid)
+            qq.navigateTo({
+                url: "/pages/poem/poem?id=" + e.currentTarget.dataset.poemid
+            })
         },
         poemLike(e) {
             console.log('like poem ', e.currentTarget.dataset.poemid)
