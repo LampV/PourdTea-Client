@@ -9,10 +9,39 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 }
+.poems-container:before{
+  background-color: #EBEBEB;
+  position: fixed;
+  height: 2rpx;
+  width: 732rpx;
+  content: " ";
+}
 .poem-container{
-  background-color: #FFFFFF;
-  margin: 14rpx 0;
-  padding: 6rpx 6rpx;
-  border: solid 2rpx #B0B0B0;
-  border-radius: 10rpx;
+  padding: 36rpx 20rpx;
+  border-bottom: solid 1rpx #EBEBEB;
+}
+.poem-title{
+  font-size: 34rpx;
+  font-weight: 400;
+  color: #000000;
+}
+.poem-author-info{
+  color: #EEAD0E;
+  font-size: 24rpx;
+  display: flex;
+  margin-top: 36rpx;
+}
+.poem-author-dynasty{
+  display: flex;
+}
+.poem-author-sep{
+  margin: 2rpx 4rpx 0 4rpx;
+}
+.poem-author-name{
+  display: flex;
+}
+.poem-abstract{
+  font-size: 32rpx;
+  color: #666666;
+  margin-top: 36rpx;
 }

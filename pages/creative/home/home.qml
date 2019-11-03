@@ -3,8 +3,9 @@
         <view wx:for="{{poem_list}}" wx:for-item="poem" wx:key="{{poem}}" class="poem-container">
             <view class="poem-title"> {{poem.title}} </view>
             <view class="poem-author-info">
-            <view class="poem-dynasty"> {{poem.dynasty}} </view>
-            <view class="poem-author"> {{poem.author}} </view>
+                <view class="poem-author-dynasty"> {{poem.dynasty}} </view>
+                <view class="poem-author-sep">/</view>
+                <view class="poem-author-name"> {{poem.author}} </view>
             </view>
             <view class="poem-abstract"> {{poem.abstract}} </view>
         </view>
