@@ -6,6 +6,9 @@ Page({
     page: 0
   },
   onLoad: function () {
+    qq.showShareMenu({
+      showShareItems: ['qq', 'qzone', 'wechatFriends', 'wechatMoment']
+    })
     let remoteUrl = app.globalData.remoteIp + '/poem/list/sample'
     qq.request({
       url: remoteUrl,
