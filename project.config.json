@@ -38,12 +38,23 @@
 			"list": []
 		},
 		"game": {
-			"currentL": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
 			"list": []
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "模版启动",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": ""
+				}
+			]
 		}
 	}
 }
