@@ -1,14 +1,5 @@
 @import "colorui/main.wxss";
 @import "colorui/icon.wxss";
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-}
 .poems-container:before{
   position: absolute;
   background-color: #EBEBEB;
@@ -16,4 +7,13 @@
   height: 2rpx;
   width: 732rpx;
   content: " ";
+}
+.color-grey{
+  color: #666666;
+}
+.color-orange{
+  color: #cd950c;
+}
+.color-ricewhite{
+  color: #fafafb;
 }

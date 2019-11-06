@@ -3,6 +3,7 @@ const app = getApp()
 
 Page({
     data: {
+        iconArray: ['']
     },
 
     onLoad: function (options) {
@@ -15,12 +16,25 @@ Page({
             },
             success: res=>{
                 this.setData({
-                    poem: res.data
+                    poem: {
+                        title: res.data.title,
+                        author_name: res.data.author_name,
+                        author_dynasty: res.data.dynasty,
+                        sentences: res.data.text.split('\n'),
+                        author_abstract_parags: res.data.author_abstract.split('\n'),
+                    }
                 })
+                console.log(res.data)
             }
         })
         this.setData({
-            id: options.id
+            id: options.id,
+            currentItemId: "poem_content",
         })
     },
+    swipeToAuthor: function(){
+        this.setData({
+            currentItemId: 'poem_author'
+        })
+    }
 })
