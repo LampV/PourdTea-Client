@@ -7,11 +7,11 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: qq.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
   bindViewTap: function () {
-    qq.navigateTo({
+    wx.navigateTo({
       url: '../logs/logs'
     })
   },
@@ -32,7 +32,7 @@ Page({
       }
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
-      qq.getUserInfo({
+      wx.getUserInfo({
         success: res => {
           app.globalData.userInfo = res.userInfo
           this.setData({

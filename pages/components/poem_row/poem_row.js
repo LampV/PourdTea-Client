@@ -14,7 +14,7 @@ Component({
     methods: {
         componentNavToPoem(e) {
             console.log('nav to poem ', e.currentTarget.dataset.poemid)
-            qq.navigateTo({
+            wx.navigateTo({
                 url: "/pages/poem/poem?id=" + e.currentTarget.dataset.poemid
             })
         },

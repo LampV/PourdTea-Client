@@ -18,7 +18,7 @@ Component({
     methods: {
         barIconTap(e) {
             app.globalData.curIcon = e.target.dataset.icon
-            qq.switchTab({
+            wx.switchTab({
                 url: '/pages/' + e.target.dataset.icon + '/home/home'
             })
         }

@@ -27,12 +27,13 @@
         "text": "我的"
       }
     ],
-    "usingComponents":{}
+    "usingComponents": {}
   },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "QQ小程序",
     "navigationBarTextStyle": "black"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

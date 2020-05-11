@@ -7,11 +7,9 @@ Page({
     curIcon: "",
   },
 
-  onLoad: function () {
-    // 页面加载时将当前页面设置为第0个
-    this.setData({
-      curIcon: this.data.iconArray[0],
-    })
+  onLoad: function (options) {
+
+    console.log('index page receive:', options)
   },
   barIconTap: function (e) {
     this.setData({

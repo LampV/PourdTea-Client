@@ -8,13 +8,13 @@ Page({
 
     onLoad: function (options) {
         let remoteUrl = app.globalData.remoteIp + '/poem/text'
-        qq.request({
+        wx.request({
             url: remoteUrl,
             method: 'POST',
             data: {
                 poem_id: options.id
             },
-            success: res=>{
+            success: res => {
                 this.setData({
                     poem: {
                         title: res.data.title,
@@ -32,9 +32,9 @@ Page({
             currentItemId: "poem_content",
         })
     },
-    swipeToAuthor: function(){
+    swipeToAuthor: function () {
         this.setData({
             currentItemId: 'poem_author'
         })
-    }
+    },
 })
