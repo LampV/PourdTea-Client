@@ -2,7 +2,7 @@
   <view class="cu-bar search bg-white fixed">
     <view class="search-form round">
       <text class="cuIcon-search"></text>
-      <input type="text" placeholder="搜索诗句、标题、作者" confirm-type="search"></input>
+      <input type="text" placeholder="搜索诗句、标题、作者" confirm-type="search" bindinput="SearchInput"></input>
     </view>
     <view class="action">
       <button class="cu-btn bg-green shadow-blur round">搜索</button>

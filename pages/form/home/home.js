@@ -35,4 +35,12 @@ Component({
       remoteUrl: remoteUrl
     })
   },
+  methods:{
+    SearchInput(e){
+      let input = e.detail.value
+      this.setData({
+        searchInput: input
+      })
+    }
+  }
 })
