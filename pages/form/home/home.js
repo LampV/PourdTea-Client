@@ -1,13 +1,16 @@
 //获取应用实例
 const app = getApp()
 
-Page({
+Component({
   data: {
     page: 0,
     dynasty: '',
     author: '',
   },
-  onLoad: function () {
+  options: {
+    addGlobalClass: true,
+  },
+  attached: function () {
     wx.showShareMenu({
       showShareItems: ['wx', 'qzone', 'wechatFriends', 'wechatMoment']
     })

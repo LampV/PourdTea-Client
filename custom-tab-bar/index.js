@@ -3,24 +3,38 @@
 const app = getApp()
 
 Component({
-    data: {
-        iconArray: ["creative", "form", "my"],
-        curIcon: "",
+  data: {
+    iconArray: ["creative", "form", "my"],
+    curIcon: "",
+  },
+  options: {
+    addGlobalClass: true,
+  },
+  created: function () {
+    console.log('tabbar created')
+  },
+  attached: function () {
+    console.log('tabbar attached')
+    this.setData({
+      curIcon: app.globalData.curIcon || iconArray[0]
+    })
+  },
+  detached: function () {
+    console.log('tabbar detached')
+  },
+  methods: {
+    iconChange(icon) {
+      app.globalData.curIcon = icon
+      this.setData({
+        curIcon: icon,
+      })
+      wx.switchTab({
+        url: '/pages/' + icon + '/home/home'
+      })
     },
-    options: {
-        addGlobalClass: true,
-    },
-    attached: function () {
-        this.setData({
-            curIcon: app.globalData.curIcon || iconArray[0]
-        })
-    },
-    methods: {
-        barIconTap(e) {
-            app.globalData.curIcon = e.target.dataset.icon
-            wx.switchTab({
-                url: '/pages/' + e.target.dataset.icon + '/home/home'
-            })
-        }
+    barIconTap(e) {
+      let icon = e.target.dataset.icon
+      this.iconChange(icon)
     }
+  }
 })

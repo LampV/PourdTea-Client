@@ -1,38 +1,17 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/creative/home/home",
     "pages/form/home/home",
     "pages/my/logs/logs",
     "pages/my/home/home",
     "pages/my/setting/setting",
-    "pages/poem/poem",
-    "pages/index/index"
+    "pages/poem/poem"
   ],
-  "tabBar": {
-    "custom": true,
-    "color": "#FFFFFF",
-    "selectedColor": "#FFFFFF",
-    "backgroundColor": "#FFFFFF",
-    "list": [
-      {
-        "pagePath": "pages/creative/home/home",
-        "text": "推荐"
-      },
-      {
-        "pagePath": "pages/form/home/home",
-        "text": "文库"
-      },
-      {
-        "pagePath": "pages/my/home/home",
-        "text": "我的"
-      }
-    ],
-    "usingComponents": {}
-  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "QQ小程序",
+    "navigationBarTitleText": "泼茶香",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"

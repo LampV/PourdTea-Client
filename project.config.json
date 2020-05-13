@@ -6,11 +6,21 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false,
-		"remoteDebugLogEnable": false,
-		"uploadWithSourceMap": true,
+		"coverView": true,
 		"nodeModules": true,
-		"uglifyFileName": true
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"uglifyFileName": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"remoteDebugLogEnable": false
 	},
 	"compileType": "miniprogram",
 	"createTime": 1572086503534,

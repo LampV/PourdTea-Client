@@ -8,7 +8,9 @@ Page({
   },
 
   onLoad: function (options) {
-
+    this.setData({
+      curIcon: this.data.iconArray[0],
+    })
     console.log('index page receive:', options)
   },
   barIconTap: function (e) {
