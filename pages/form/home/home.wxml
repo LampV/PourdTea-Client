@@ -1,10 +1,17 @@
 <view class="container poemlist-scrollview">
-    <scroll-view>
-        <view class="poems-container">
-            <block wx:for="{{poem_list}}" wx:for-item="poem" wx:key="{{poem}}">
-                <poem-row poem="{{poem}}"></poem-row>
-            </block>
-        </view>
-        <view class="cu-tabbar-height"></view>
-    </scroll-view>
+  <view class="cu-bar search bg-white fixed">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="搜索诗句、标题、作者" confirm-type="search"></input>
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-green shadow-blur round">搜索</button>
+    </view>
+  </view>
+  <view class="poems-container">
+    <block wx:for="{{poem_list}}" wx:for-item="poem" wx:key="{{poem}}">
+      <poem-row poem="{{poem}}"></poem-row>
+    </block>
+  </view>
+  <view class="cu-tabbar-height"></view>
 </view>
