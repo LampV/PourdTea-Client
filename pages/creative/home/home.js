@@ -31,4 +31,9 @@ Component({
       remoteUrl: remoteUrl
     })
   },
+  methods:{
+    ShowTypes(){
+      console.log("show creative types")
+    }
+  }
 })

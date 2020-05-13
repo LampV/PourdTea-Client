@@ -1,5 +1,10 @@
 <view class="container poemlist-scrollview">
+  <view class="cu-bar cu-item bg-white fixed">
+    <view class="avatar margin-left" style="font-size:44rpx" bindtap="ShowTypes"><text class="cuIcon-list"></text></view>
+    <view class="content"><text> 每日推荐</text></view>
+  </view>
   <view class="poems-container">
+    <view class="cu-bar cu-form-group bg-white"></view>
     <block wx:for="{{poem_list}}" wx:for-item="poem" wx:key="poem" wx:for-index="index">
       <poem-row poem="{{poem}}">
         </poem-row>
