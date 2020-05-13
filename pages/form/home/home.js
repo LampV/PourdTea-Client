@@ -39,8 +39,12 @@ Component({
     SearchInput(e){
       let input = e.detail.value
       this.setData({
-        searchInput: input
+        searchStr: input
       })
+    },
+    Search(){
+      let searchStr = this.data.searchStr
+      console.log(searchStr)
     }
   }
 })
