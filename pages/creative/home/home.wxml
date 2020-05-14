@@ -1,14 +1,28 @@
 <view class="container poemlist-scrollview">
   <view class="cu-bar cu-item bg-white fixed">
-    <view class="avatar margin-left" style="font-size:44rpx" bindtap="ShowTypes"><text class="cuIcon-list"></text></view>
-    <view class="content"><text> 每日推荐</text></view>
-    
+    <view class="avatar margin-left" style="font-size:44rpx" bindtap="showModal" data-target="DrawerModalL">
+      <text class="cuIcon-list"></text>
+    </view>
+    <view class="content">
+      <text>{{typeArray[curTypeIndex]}}</text>
+    </view>
+  </view>
+  <view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalL'?'show':''}}" bindtap="hideModal">
+    <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
+      <view class="cu-list menu text-left">
+        <view class="cu-item arrow" wx:for="{{typeArray}}" style="{{curTypeIndex==index ? 'background-color:#cce6ff;' : ''}}" wx:key wx:for-item="type" wx:for-index="index" data-target="{{index}}" bind:tap="typeTap">
+          <view class="content" data-target="{{index}}">
+            <view data-target="{{index}}">{{type}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
   <view class="poems-container">
     <view class="cu-bar cu-form-group bg-white"></view>
     <block wx:for="{{poem_list}}" wx:for-item="poem" wx:key="poem" wx:for-index="index">
       <poem-row poem="{{poem}}">
-        </poem-row>
+      </poem-row>
     </block>
     <view class='text-sm text-gray text-center'>已经到底了</view>
   </view>

@@ -3,12 +3,14 @@ const app = getApp()
 
 Component({
   data: {
-    page: 0
+    page: 0,
+    curTypeIndex: 0,
+    typeArray:['每日推荐', '精选诗句', '答案诗']
   },
   options: {
     addGlobalClass: true,
   },
-  attached: function () {
+  attached: function() {
     wx.showShareMenu({
       showShareItems: ['wx', 'qzone', 'wechatFriends', 'wechatMoment']
     })
@@ -31,9 +33,22 @@ Component({
       remoteUrl: remoteUrl
     })
   },
-  methods:{
-    ShowTypes(){
-      console.log("show creative types")
+  methods: {
+    hideModal(e) {
+      this.setData({
+        modalName: null
+      })
+    },
+    showModal(e) {
+      this.setData({
+        modalName: e.currentTarget.dataset.target
+      })
+    },
+    typeTap(e){
+      this.setData({
+        curTypeIndex: e.currentTarget.dataset.target
+      })
+      let timer = setTimeout(()=>{this.hideModal()}, 360);
     }
   }
 })

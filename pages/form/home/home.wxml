@@ -9,7 +9,7 @@
   <view class="poems-container">
   <!-- 占位符 -->
     <view class="cu-bar search bg-white"></view>
-    <block wx:for="{{poemArray}}" wx:for-item="poem" wx:key="{{poem}}">
+    <block wx:for="{{poemArray}}" wx:for-item="poem" wx:key="poem">
       <poem-row poem="{{poem}}"></poem-row>
     </block>
   </view>
