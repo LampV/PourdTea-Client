@@ -13,6 +13,11 @@ Page({
     })
     console.log('index page receive:', options)
   },
+  onReachBottom: function () {
+    if (this.data.curIcon == "form") {
+      this.selectComponent("#form").GetPoemArray();
+    }
+  },
   barIconTap: function (e) {
     this.setData({
       curIcon: e.target.dataset.icon,

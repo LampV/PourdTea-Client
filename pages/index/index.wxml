@@ -1,9 +1,9 @@
 <view hidden="{{curIcon!='creative'}}"><creative id='creative'></creative></view>
-<view hidden="{{curIcon!='form'}}"><form></form></view>
+<view hidden="{{curIcon!='form'}}"><form id='form'></form></view>
 <view hidden="{{curIcon!='my'}}"><my id='my'></my></view>
 
 <view class="cu-bar tabbar bg-white shadow foot">
   <view class="cuIcon-cu-image action" wx:for="{{iconArray}}" wx:for-item="icon" wx:key="icon" data-icon="{{icon}}" bindtap="barIconTap">
-    <view class="cuIcon-{{icon}}{{curIcon==icon?'fill':''}}" ></view>
+    <view class="cuIcon-{{icon}}{{curIcon==icon?'fill':''}}" data-icon="{{icon}}"></view>
   </view>
 </view>

@@ -4,14 +4,11 @@
       <text class="cuIcon-search"></text>
       <input type="text" placeholder="搜索诗句、标题、作者" confirm-type="search" bindinput="SearchInput"></input>
     </view>
-    <view class="action">
-      <button class="cu-btn bg-green shadow-blur round" bind:tap="Search">搜索</button>
-    </view>
   </view>
   <view class="poems-container">
   <!-- 占位符 -->
     <view class="cu-bar search bg-white"></view>
-    <block wx:for="{{poem_list}}" wx:for-item="poem" wx:key="{{poem}}">
+    <block wx:for="{{poemArray}}" wx:for-item="poem" wx:key="{{poem}}">
       <poem-row poem="{{poem}}"></poem-row>
     </block>
   </view>
