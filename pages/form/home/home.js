@@ -55,6 +55,9 @@ Component({
       let reNoneStr = /[^\u4e00-\u9fa5]/g
       let reOther = /[,，;；、 ]/g
       let searchInput = e.detail.value
+      this.setData({
+        completeSearchInput: searchInput
+      })
       // 获取input中的汉字部分
       searchInput = searchInput.replace(reNoneStr, '')
       // 无变化，跳过
@@ -67,9 +70,11 @@ Component({
         console.log("get list of poems of", searchInput)
       }
     },
-    Search() {
-      let searchStr = this.data.searchStr
-      console.log(searchStr)
+    ClearInput() {
+      this.setData({
+        completeSearchInput: '',
+        searchInput: ''
+      })
     }
   }
 })

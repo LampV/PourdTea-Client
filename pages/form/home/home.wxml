@@ -2,7 +2,8 @@
   <view class="cu-bar search bg-white fixed">
     <view class="search-form round">
       <text class="cuIcon-search"></text>
-      <input type="text" placeholder="搜索诗句、标题、作者" confirm-type="search" bindinput="SearchInput"></input>
+      <input type="text" placeholder="搜索诗句、标题、作者" confirm-type="search" bindinput="SearchInput" value="{{searchInput}}"></input>
+      <text class="cuIcon-roundclose text-gray" wx:if="{{completeSearchInput}}" bind:tap="ClearInput"></text>
     </view>
   </view>
   <view class="poems-container">
