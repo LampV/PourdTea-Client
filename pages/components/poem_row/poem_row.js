@@ -2,27 +2,42 @@
 const app = getApp()
 
 Component({
-    data: {
-        page: 0
+  data: {
+    page: 0
+  },
+  properties: {
+    poem: Object,
+  },
+  options: {
+    addGlobalClass: true,
+  },
+  methods: {
+    componentNavToPoem(e) {
+      console.log('nav to poem ', e.currentTarget.dataset.poemid)
+      wx.navigateTo({
+        url: "/pages/poem/poem?id=" + e.currentTarget.dataset.poemid
+      })
     },
-    properties: {
-        poem: Object,
-    },
-    options: {
-        addGlobalClass: true,
-    },
-    methods: {
-        componentNavToPoem(e) {
-            console.log('nav to poem ', e.currentTarget.dataset.poemid)
-            wx.navigateTo({
-                url: "/pages/poem/poem?id=" + e.currentTarget.dataset.poemid
-            })
+    poemLike(e) {
+      let poem = this.data.poem
+      poem.like_flag = !poem.like_flag
+      this.setData({
+        poem: poem
+      })
+      let remoteUrl = app.globalData.remoteIp + '/account/like'
+      wx,wx.request({
+        url: remoteUrl,
+        data: {
+          action: poem.like_flag,
+          pid: this.data.poem.pid,
+          uid: app.globalData.accountInfo.uid
         },
-        poemLike(e) {
-            console.log('like poem ', e.currentTarget.dataset.poemid)
-            this.setData({
-                like: !this.data.like,
-            })
-        }
+        method: 'POST',
+        dataType: 'json',
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
+      })
     }
+  }
 })

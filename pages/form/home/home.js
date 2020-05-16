@@ -17,7 +17,7 @@ Component({
       wx.showShareMenu({
         showShareItems: ['wx', 'qzone', 'wechatFriends', 'wechatMoment']
       })
-      let remoteUrl = app.globalData.remoteIp + '/poem/list/scan'
+      let remoteUrl = app.globalData.remoteIp + '/poem/scan/list'
       this.setData({
         remoteUrl: remoteUrl
       })

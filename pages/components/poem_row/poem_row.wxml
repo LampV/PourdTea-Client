@@ -1,6 +1,6 @@
-<view class="poem-row-container" data-poemid="{{poem.id}}" bindtap="componentNavToPoem">
-    <view class="poem-row-icon__like-container" data-poemid="{{poem.id}}" catchtap="poemLike">
-        <view class="cuIcon-like{{like ? 'fill' : ''}} poem-row-icon__like" > </view>
+<view class="poem-row-container" data-poemid="{{poem.pid}}" bindtap="componentNavToPoem">
+    <view class="poem-row-icon__like-container" data-poemid="{{poem.pid}}" catchtap="poemLike">
+        <view class="cuIcon-like{{poem.like_flag ? 'fill' : ''}} poem-row-icon__like" > </view>
     </view>
     <view class="poem-row-title"> {{poem.title}} </view>
     <view class="poem-row-author-info">

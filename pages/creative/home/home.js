@@ -14,7 +14,7 @@ Component({
     wx.showShareMenu({
       showShareItems: ['wx', 'qzone', 'wechatFriends', 'wechatMoment']
     })
-    let remoteUrl = app.globalData.remoteIp + '/poem/list/sample'
+    let remoteUrl = app.globalData.remoteIp + '/poem/infer/list'
     wx.request({
       url: remoteUrl,
       method: 'POST',
