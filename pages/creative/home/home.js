@@ -24,6 +24,14 @@ Component({
     })
   },
   methods: {
+    changeModal(e){
+      let modalName = this.data.modalName
+      if(modalName){
+        this.hideModal(e)
+      }else{
+        this.showModal(e)
+      }
+    },
     hideModal(e) {
       this.setData({
         modalName: null

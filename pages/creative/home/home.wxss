@@ -1,3 +1,6 @@
 .container {
     height: 100%;
 }
+.rotate{
+  transform: rotate(90deg);
+}

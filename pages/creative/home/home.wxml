@@ -1,6 +1,6 @@
 <view class="container poemlist-scrollview">
   <view class="cu-bar cu-item bg-white fixed">
-    <view class="avatar margin-left" style="font-size:44rpx" bindtap="showModal" data-target="DrawerModalL">
+    <view class="avatar margin-left {{modalName=='DrawerModalL'?'rotate':''}}" style="font-size:44rpx;transition:transform 0.5s;" bindtap="changeModal" data-target="DrawerModalL">
       <text class="cuIcon-list"></text>
     </view>
     <view class="content">
