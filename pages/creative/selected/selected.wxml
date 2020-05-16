@@ -1,0 +1,5 @@
+<!--pages/creative/selected/selected.wxml-->
+<view class="cu-bar cu-form-group bg-white"></view>
+<view class="justify-center">
+  <view class="text-center">精选诗句，施工中</view>
+</view>

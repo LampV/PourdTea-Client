@@ -1,6 +1,8 @@
 {
   "usingComponents": {
     "poem-row": "/pages/components/poem_row/poem_row",
-    "infer": "/pages/creative/infer/infer"
+    "infer": "/pages/creative/infer/infer",
+    "selected": "/pages/creative/selected/selected",
+    "answer": "/pages/creative/answer/answer"
   }
 }

@@ -4,7 +4,12 @@ const app = getApp()
 Component({
   data: {
     curTypeIndex: 0,
-    typeArray:['每日推荐', '精选诗句', '答案诗']
+    typeArray: ['infer', 'selected', 'answer'],
+    typeCompMap: {
+      'infer': '每日推荐',
+      'selected': '精选诗句',
+      'answer': '答案诗'
+    }
   },
   options: {
     addGlobalClass: true,
@@ -33,6 +38,7 @@ Component({
       this.setData({
         curTypeIndex: e.currentTarget.dataset.target
       })
+      console.log('switch to', this.data.typeArray[this.data.curTypeIndex])
       let timer = setTimeout(()=>{this.hideModal()}, 360);
     }
   }

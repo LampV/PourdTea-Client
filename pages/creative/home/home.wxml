@@ -4,18 +4,22 @@
       <text class="cuIcon-list"></text>
     </view>
     <view class="content">
-      <text>{{typeArray[curTypeIndex]}}</text>
+      <text>{{typeCompMap[typeArray[curTypeIndex]]}}</text>
     </view>
   </view>
 
 
-  <infer></infer>
-  <view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalL'?'show':''}}" bindtap="hideModal">
+  <view hidden="{{typeArray[curTypeIndex]!='infer'}}"><infer></infer></view>
+  <view hidden="{{typeArray[curTypeIndex]!='selected'}}"><selected></selected></view>
+  <view hidden="{{typeArray[curTypeIndex]!='answer'}}"><answer></answer></view>
+
+  <view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalL'?'show':''}}" bindtap="hideModal" style='z-index:512'>
     <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
       <view class="cu-list menu text-left">
+        <view class="cu-item"></view>
         <view class="cu-item arrow" wx:for="{{typeArray}}" style="{{curTypeIndex==index ? 'background-color:#cce6ff;' : ''}}" wx:key wx:for-item="type" wx:for-index="index" data-target="{{index}}" bind:tap="typeTap">
           <view class="content" data-target="{{index}}">
-            <view data-target="{{index}}">{{type}}</view>
+            <view data-target="{{index}}">{{typeCompMap[type]}}</view>
           </view>
         </view>
       </view>
