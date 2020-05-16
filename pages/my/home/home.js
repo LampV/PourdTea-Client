@@ -55,5 +55,10 @@ Component({
         hasUserInfo: true
       })
     },
+    NavToMyLikes() {
+      wx.navigateTo({
+        url: '/pages/my/likes/likes'
+      })
+    },
   }
 })

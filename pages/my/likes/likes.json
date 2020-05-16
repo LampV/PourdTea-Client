@@ -1,5 +1,4 @@
 {
-  "component": true,
   "usingComponents": {
     "poem-row": "/pages/components/poem_row/poem_row"
   }

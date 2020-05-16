@@ -1,0 +1,12 @@
+<view class="poems-container">
+  <view class="cu-bar cu-form-group bg-white justify-center shadow-wrap fixed">
+    <text class="text-black text-lg text-center">我的喜欢</text>
+  </view>
+  <view class="cu-bar"></view>
+  <block wx:for="{{likePoemArray}}" wx:for-item="poem" wx:key="poem" wx:for-index="index">
+    <poem-row poem="{{poem}}">
+    </poem-row>
+  </block>
+  <view class='text-sm text-gray text-center'>已经到底了</view>
+</view>
+<view class="cu-tabbar-height"></view>

@@ -25,7 +25,7 @@ Component({
         poem: poem
       })
       let remoteUrl = app.globalData.remoteIp + '/account/like'
-      wx,wx.request({
+      wx.request({
         url: remoteUrl,
         data: {
           action: poem.like_flag,
@@ -38,6 +38,13 @@ Component({
         fail: function(res) {},
         complete: function(res) {},
       })
+      // 提醒上级目录
+      let eventDetail = {
+        pid: this.data.poem.pid,
+        curStatus: poem.like_flag,
+        statusTyep: 'like'
+      }
+      this.triggleEvent('statusChange', eventDetail, {})
     }
   }
 })
