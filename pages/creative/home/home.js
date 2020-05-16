@@ -3,7 +3,6 @@ const app = getApp()
 
 Component({
   data: {
-    page: 0,
     curTypeIndex: 0,
     typeArray:['每日推荐', '精选诗句', '答案诗']
   },
@@ -15,20 +14,6 @@ Component({
       showShareItems: ['wx', 'qzone', 'wechatFriends', 'wechatMoment']
     })
     let remoteUrl = app.globalData.remoteIp + '/poem/infer/list'
-    wx.request({
-      url: remoteUrl,
-      method: 'POST',
-      data: {
-        page: this.data.page
-      },
-      success: res => {
-        this.setData({
-          page: this.data.page + 1,
-          poem_list: res.data
-        })
-        console.log(res.data)
-      }
-    })
     this.setData({
       remoteUrl: remoteUrl
     })

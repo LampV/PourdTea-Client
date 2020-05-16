@@ -1,0 +1,10 @@
+<!--pages/creative/infer/infer.wxml-->
+<view class="poems-container">
+  <view class="cu-bar cu-form-group bg-white"></view>
+  <block wx:for="{{poem_list}}" wx:for-item="poem" wx:key="poem" wx:for-index="index">
+    <poem-row poem="{{poem}}">
+    </poem-row>
+  </block>
+  <view class='text-sm text-gray text-center'>已经到底了</view>
+</view>
+<view class="cu-tabbar-height"></view>

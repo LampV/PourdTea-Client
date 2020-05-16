@@ -7,6 +7,9 @@
       <text>{{typeArray[curTypeIndex]}}</text>
     </view>
   </view>
+
+
+  <infer></infer>
   <view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalL'?'show':''}}" bindtap="hideModal">
     <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
       <view class="cu-list menu text-left">
@@ -18,13 +21,5 @@
       </view>
     </view>
   </view>
-  <view class="poems-container">
-    <view class="cu-bar cu-form-group bg-white"></view>
-    <block wx:for="{{poem_list}}" wx:for-item="poem" wx:key="poem" wx:for-index="index">
-      <poem-row poem="{{poem}}">
-      </poem-row>
-    </block>
-    <view class='text-sm text-gray text-center'>已经到底了</view>
-  </view>
-  <view class="cu-tabbar-height"></view>
+
 </view>

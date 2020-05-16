@@ -6,8 +6,7 @@
     "pages/my/logs/logs",
     "pages/my/home/home",
     "pages/my/setting/setting",
-    "pages/poem/poem",
-    "pages/creative/types/types"
+    "pages/poem/poem"
   ],
   "window": {
     "backgroundTextStyle": "light",
