@@ -1,17 +1,71 @@
 //app.js
 App({
-  onLaunch: function () {
+  onLaunch: function() {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
+    // 设置remote url
+    wx.getSystemInfo({
       success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        let useDev = true;
+        if (res.brand == 'devtools' && useDev) {
+          this.globalData.remoteIp = 'http://127.0.0.1:5000'
+        } else {
+          this.globalData.remoteIp = 'https://hyunee.top:5000'
+        }
       }
     })
+    // 登录
+    let openid = wx.getStorageSync('openid')
+    if (!openid) {
+      wx.login({
+        success: res => {
+          console.log('no openid')
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          if (res.code) {
+            // 发起网络请求
+            wx.request({
+              url: this.globalData.remoteIp + '/account/login',
+              method: 'POST',
+              data: {
+                code: res.code
+              },
+              success: res => {
+                console.log('login return msg:', res.data)
+                // 将信息存储到globalData以及storage
+                this.globalData.openid = res.data.openid
+                this.globalData.accountInfo = res.data.account_info
+                wx.setStorage({
+                  key: "openid",
+                  data: res.data.openid
+                })
+              },
+              fail: err => {
+              }
+            })
+          } else {
+            reject('登录失败！' + res.errMsg)
+          }
+        }
+      })
+    } else {
+      this.globalData.openid = openid
+      console.log(this.globalData.remoteIp)
+      wx.request({
+        // TODO 这里this.globalData.remoteIp是undified
+        url: this.globalData.remoteIp + '/account/get_info',
+        method: 'POST',
+        data: {
+          openid: openid
+        },
+        success: res => {
+          // 将信息存储到globalData
+          this.globalData.accountInfo = res.data.account_info
+        },
+        fail: err => {}
+      })
+    }
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -32,17 +86,7 @@ App({
         }
       }
     })
-    // 设置remote url
-    wx.getSystemInfo({
-      success: res => {
-        let useDev = true;
-        if (res.brand == 'devtools' && useDev) {
-          this.globalData.remoteIp = 'http://127.0.0.1:5000'
-        } else {
-          this.globalData.remoteIp = 'https://hyunee.top:5000'
-        }
-      }
-    })
+    
   },
   globalData: {
     userInfo: null,
