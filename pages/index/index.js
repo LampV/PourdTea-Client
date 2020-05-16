@@ -13,6 +13,8 @@ Page({
     })
     console.log('index page receive:', options)
   },
+  onShow: function() {
+  },
   onReachBottom: function () {
     if (this.data.curIcon == "form") {
       this.selectComponent("#form").GetPoemArray();

@@ -4,7 +4,7 @@
   </view>
   <view class="cu-bar"></view>
   <block wx:for="{{likePoemArray}}" wx:for-item="poem" wx:key="poem" wx:for-index="index">
-    <poem-row poem="{{poem}}">
+    <poem-row poem="{{poem}}" bind:statusChange="StatusChange">
     </poem-row>
   </block>
   <view class='text-sm text-gray text-center'>已经到底了</view>

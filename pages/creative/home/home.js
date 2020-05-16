@@ -48,6 +48,6 @@ Component({
       })
       console.log('switch to', this.data.typeArray[this.data.curTypeIndex])
       let timer = setTimeout(()=>{this.hideModal()}, 360);
-    }
+    },
   }
 })

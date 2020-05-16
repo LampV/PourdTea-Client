@@ -41,10 +41,10 @@ Component({
       // 提醒上级目录
       let eventDetail = {
         pid: this.data.poem.pid,
-        curStatus: poem.like_flag,
-        statusTyep: 'like'
+        status: poem.like_flag,
+        statusType: 'like'
       }
-      this.triggleEvent('statusChange', eventDetail, {})
+      this.triggerEvent('statusChange', eventDetail, {})
     }
   }
 })

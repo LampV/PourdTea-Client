@@ -25,8 +25,11 @@ Component({
     }
   },
   pageLifetimes: {
-    pullDownReflash(){
-      this.GetPoemArray()
+    show() {
+      let msg = app.globalData.msg
+      if (msg && msg.length) {
+        this.ProcessMsg(msg)
+      }
     }
   },
   methods: {
@@ -75,6 +78,33 @@ Component({
         completeSearchInput: '',
         searchInput: ''
       })
-    }
+    },
+    ProcessMsg(msg) {
+      for (let i in msg) {
+        let m = msg[i]
+        this.StatusChange(m)
+      }
+
+    },
+    StatusChange(e) {
+      if (e.detail) {
+        e = e.detail
+      }
+      let poemArray = this.data.poemArray
+      for (let i in poemArray) {
+        let poem = poemArray[i]
+        if (poem.pid == e.pid) {
+          console.log(e.pid, e.status)
+          if (e.status) {
+            poem.like_flag = app.globalData.accountInfo.uid
+          } else {
+            poem.like_flag = null
+          }
+        }
+      }
+      this.setData({
+        poemArray: poemArray
+      })
+    },
   }
 })

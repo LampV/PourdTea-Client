@@ -10,7 +10,7 @@
   <!-- 占位符 -->
     <view class="cu-bar search bg-white"></view>
     <block wx:for="{{poemArray}}" wx:for-item="poem" wx:key="poem">
-      <poem-row poem="{{poem}}"></poem-row>
+      <poem-row poem="{{poem}}" bind:statusChange="StatusChange"></poem-row>
     </block>
     <view class="cu-load bg-gray loading"></view>
   </view>
