@@ -17,7 +17,7 @@
     <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
       <view class="cu-list menu text-left">
         <view class="cu-item"></view>
-        <view class="cu-item arrow" wx:for="{{typeArray}}" style="{{curTypeIndex==index ? 'background-color:#cce6ff;' : ''}}" wx:key="item" wx:for-item="type" wx:for-index="index" data-target="{{index}}" bind:tap="typeTap">
+        <view class="cu-item arrow" wx:for="{{typeArray}}" style="transition: all .1s ease-in-out 0s;{{curTypeIndex==index ? 'background-color:#cce6ff;' : ''}}" wx:key="item" wx:for-item="type" wx:for-index="index" data-target="{{index}}" bind:tap="typeTap" >
           <view class="content" data-target="{{index}}">
             <view data-target="{{index}}">{{typeCompMap[type]}}</view>
           </view>

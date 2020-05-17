@@ -47,7 +47,7 @@ Component({
         curTypeIndex: e.currentTarget.dataset.target
       })
       console.log('switch to', this.data.typeArray[this.data.curTypeIndex])
-      let timer = setTimeout(()=>{this.hideModal()}, 360);
+      let timer = setTimeout(()=>{this.hideModal()}, 100);
     },
   }
 })
