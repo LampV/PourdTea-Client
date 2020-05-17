@@ -4,9 +4,8 @@ const app = getApp()
 Component({
   data: {
     page: 0,
-    dynasty: '',
-    author: '',
     searchInput: '',
+    loadingFlag: true,
     poemArray: []
   },
   options: {
@@ -17,7 +16,7 @@ Component({
       wx.showShareMenu({
         showShareItems: ['wx', 'qzone', 'wechatFriends', 'wechatMoment']
       })
-      let remoteUrl = app.globalData.remoteIp + '/poem/scan/list'
+      let remoteUrl = app.globalData.remoteIp + '/poem/search/list'
       this.setData({
         remoteUrl: remoteUrl
       })
@@ -41,16 +40,24 @@ Component({
         method: 'POST',
         data: {
           page: this.data.page,
-          dynasty: this.data.dynasty,
-          author: this.data.author
+          uid: app.globalData.accountInfo.uid,
+          searchContent: this.data.searchInput
         },
         success: res => {
           this.setData({
             page: this.data.page + 1,
-            poemArray: this.data.poemArray.concat(res.data)
+            poemArray: this.data.poemArray.concat(res.data),
+            loadingFlag: res.data.length>0
           })
           console.log('GetPoemArray success')
         }
+      })
+    },
+    DataInit(){
+      this.setData({
+        poemArray: [],
+        loadingFlag: true,
+        page: 0
       })
     },
     SearchInput(e) {
@@ -68,16 +75,19 @@ Component({
 
       } else {
         this.setData({
-          searchInput: searchInput
+          searchInput: searchInput,
         })
-        console.log("get list of poems of", searchInput)
+        this.DataInit()
+        this.GetPoemArray()
       }
     },
     ClearInput() {
       this.setData({
         completeSearchInput: '',
-        searchInput: ''
+        searchInput: '',
       })
+      this.DataInit()
+      this.GetPoemArray()
     },
     ProcessMsg(msg) {
       for (let i in msg) {

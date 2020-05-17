@@ -18,6 +18,7 @@ Component({
   },
   lifetimes: {
     attached: function() {
+      console.log('infer attach')
       wx.showShareMenu({
         showShareItems: ['wx', 'qzone', 'wechatFriends', 'wechatMoment']
       })
@@ -26,7 +27,8 @@ Component({
         url: remoteUrl,
         method: 'POST',
         data: {
-          page: this.data.page
+          page: this.data.page,
+          uid: app.globalData.accountInfo.uid,
         },
         success: res => {
           this.setData({

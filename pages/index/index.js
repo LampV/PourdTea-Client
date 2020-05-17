@@ -7,20 +7,22 @@ Page({
     curIcon: "",
   },
 
-  onLoad: function (options) {
+  onLoad: function(options) {
+    console.log('index on load')
     this.setData({
       curIcon: this.data.iconArray[0],
     })
     console.log('index page receive:', options)
+
+
   },
-  onShow: function() {
-  },
-  onReachBottom: function () {
+  onShow: function() {},
+  onReachBottom: function() {
     if (this.data.curIcon == "form") {
       this.selectComponent("#form").GetPoemArray();
     }
   },
-  barIconTap: function (e) {
+  barIconTap: function(e) {
     this.setData({
       curIcon: e.target.dataset.icon,
     })

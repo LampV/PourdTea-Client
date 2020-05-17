@@ -16,6 +16,15 @@ App({
         }
       }
     })
+    let accountInfo = wx.getStorageSync('accountInfo')
+    if (accountInfo && accountInfo.uid) {
+      console.log('get accountInfo from storage')
+      this.globalData.accountInfo = accountInfo
+    } else {
+      this.userLogin().then(res => {
+        console.log('app get account info')
+      })
+    }
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -36,62 +45,80 @@ App({
         }
       }
     })
-    
+
   },
   globalData: {
     userInfo: null,
     curIcon: 'creative'
   },
-  userLogin: function(){
+  userLogin: function() {
     // 登录
-    let openid = wx.getStorageSync('openid')
-    if (!openid) {
-      wx.login({
-        success: res => {
-          console.log('no openid')
-          // 发送 res.code 到后台换取 openId, sessionKey, unionId
-          if (res.code) {
-            // 发起网络请求
-            wx.request({
-              url: this.globalData.remoteIp + '/account/login',
-              method: 'POST',
-              data: {
-                code: res.code
-              },
-              success: res => {
-                console.log('login return msg:', res.data)
-                // 将信息存储到globalData以及storage
-                this.globalData.openid = res.data.openid
-                this.globalData.accountInfo = res.data.account_info
-                wx.setStorage({
-                  key: "openid",
-                  data: res.data.openid
-                })
-              },
-              fail: err => {
-              }
-            })
-          } else {
-            reject('登录失败！' + res.errMsg)
+    console.log('invoke user login')
+    let promise = new Promise((resolve, reject) => {
+      let openid = wx.getStorageSync('openid')
+      if (!openid) {
+        wx.login({
+          success: res => {
+            console.log('no openid')
+            // 发送 res.code 到后台换取 openId, sessionKey, unionId
+            if (res.code) {
+              // 发起网络请求
+              wx.request({
+                url: this.globalData.remoteIp + '/account/login',
+                method: 'POST',
+                data: {
+                  code: res.code
+                },
+                success: res => {
+                  console.log('login return msg:', res.data)
+                  // 将信息存储到globalData以及storage
+                  this.globalData.openid = res.data.openid
+                  this.globalData.accountInfo = res.data.account_info
+                  wx.setStorage({
+                    key: "openid",
+                    data: res.data.openid
+                  })
+                  wx.setStorage({
+                    key: "accountInfo",
+                    data: res.data.account_info
+                  })
+                  resolve()
+                },
+                fail: err => {
+                  reject(err)
+                }
+              })
+            } else {
+              reject('登录失败！' + res.errMsg)
+            }
           }
-        }
-      })
-    } else {
-      this.globalData.openid = openid
-      console.log(this.globalData.remoteIp)
-      wx.request({
-        // TODO 这里this.globalData.remoteIp是undified
-        url: this.globalData.remoteIp + '/account/get_info',
-        method: 'POST',
-        data: {
-          openid: openid
-        },
-        success: res => {
-          // 将信息存储到globalData
-          this.globalData.accountInfo = res.data.account_info
-        },
-        fail: err => { }
-      })
-    }
+        })
+      } else {
+        this.globalData.openid = openid
+        console.log(this.globalData.remoteIp)
+        wx.request({
+          // TODO 这里this.globalData.remoteIp是undified
+          url: this.globalData.remoteIp + '/account/get_info',
+          method: 'POST',
+          data: {
+            openid: openid
+          },
+          success: res => {
+            // 将信息存储到globalData
+            wx.setStorage({
+              key: "accountInfo",
+              data: res.data.account_info
+            })
+            this.globalData.accountInfo = res.data.account_info
+            resolve(res)
+          },
+          fail: err => {
+            reject(err)
+          }
+        })
+      }
+    })
+    return promise
   }
+
 })

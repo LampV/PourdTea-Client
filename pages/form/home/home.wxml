@@ -12,7 +12,8 @@
     <block wx:for="{{poemArray}}" wx:for-item="poem" wx:key="poem">
       <poem-row poem="{{poem}}" bind:statusChange="StatusChange"></poem-row>
     </block>
-    <view class="cu-load bg-gray loading"></view>
+    <view wx:if="{{loadingFlag}}" class="cu-load bg-gray loading"></view>
+    <view wx:else class='text-sm text-gray text-center'>已经到底了</view>
   </view>
   <view class="cu-tabbar-height"></view>
 </view>
