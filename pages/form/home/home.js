@@ -35,6 +35,9 @@ Component({
     GetPoemArray() {
       let remoteUrl = this.data.remoteUrl
       console.log(remoteUrl)
+      if(!this.data.loadingFlag){
+        return
+      }
       wx.request({
         url: remoteUrl,
         method: 'POST',
