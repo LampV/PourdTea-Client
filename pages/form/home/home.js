@@ -47,9 +47,17 @@ Component({
           searchContent: this.data.searchInput
         },
         success: res => {
+          let allPoemArray = this.data.poemArray.concat(res.data)
+          let validPoemArray = []
+          for(let i in allPoemArray){
+            let poem = allPoemArray[i]
+            if(poem.searchContent==this.data.searchInput){
+              validPoemArray.push(poem)
+            }
+          }
           this.setData({
             page: this.data.page + 1,
-            poemArray: this.data.poemArray.concat(res.data),
+            poemArray: validPoemArray,
             loadingFlag: res.data.length>0
           })
           console.log('GetPoemArray success')
