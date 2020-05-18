@@ -8,7 +8,7 @@ App({
     // 设置remote url
     wx.getSystemInfo({
       success: res => {
-        let useDev = true;
+        let useDev = false;
         if (res.brand == 'devtools' && useDev) {
           this.globalData.remoteIp = 'http://127.0.0.1:5000'
         } else {

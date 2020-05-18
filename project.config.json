@@ -49,10 +49,14 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"list": []
 		},
-		"plugin": {
+		"gamePlugin": {
 			"current": -1,
 			"list": []
 		},
@@ -70,8 +74,8 @@
 					"id": 1,
 					"name": "古诗原文",
 					"pathName": "pages/poem/poem",
-					"query": "id=65413",
-					"scene": ""
+					"query": "id=8858",
+					"scene": null
 				}
 			]
 		}
