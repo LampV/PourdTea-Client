@@ -13,7 +13,7 @@ swiper {
 }
 .poem-scroll{
     width: 100%;
-    height: calc( 100vh - 205rpx);
+    height: calc( 100vh - 60rpx);
 }
 .poem-title{
     display: flex;

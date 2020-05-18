@@ -1,40 +1,39 @@
-<view class="container">
-    <swiper class="poem-container" current-item-id="{{currentItemId}}">
-        <swiper-item item-id="poem_content">
-            <scroll-view scroll-y class="poem-scroll">
-                <view class="poem-title" bindtap="testtap">
-                    {{poem.title}}
-                </view>
-                <view class="poem-author color-orange" bindtap="swipeToAuthor">
-                    <view class="poem-author-dynasty">
-                        [{{poem.author_dynasty}}]
-                    </view>
-                    <view class="poem-author-name">
-                        {{poem.author_name}}
-                    </view>
-                </view>
-                <view class="poem-text" wx:for="{{poem.sentences}}" wx:for-item="sentence" wx:key="{{sentence}}">
-                    {{sentence}}
-                </view>
-            </scroll-view>
-        </swiper-item>
-        <swiper-item item-id="poem_author">
-            <scroll-view scroll-y class="poem-scroll">
-                <view class="author-author color-orange">
-                    <view class="author-author-name">
-                        {{poem.author_name}}
-                    </view>
-                    <view class="author-author-point">
-                        ·
-                    </view>
-                    <view class="author-author-dynasty">
-                        {{poem.author_dynasty}}
-                    </view>
-                </view>
-                <view class="author-author-abstract color-grey" wx:for="{{poem.author_abstract_parags}}" wx:for-item="parag" wx:key="{{parag}}">
-                    {{parag}}
-                </view>
-            </scroll-view>
-        </swiper-item>
-    </swiper>
+<view class="container bg-white">
+  <swiper class="padding" current-item-id="{{currentItemId}}">
+    <swiper-item item-id="poem_content">
+      <scroll-view scroll-y class="poem-scroll">
+        <view class="cu-card case">
+          <view class="cu-item shadow">
+            <view class="justify-center flex" style="font-size:44rpx">
+              <view>{{poem.title}}</view>
+            </view>
+            <view class="justify-center text-df color-orange flex margin-tb-sm" bindtap="swipeToAuthor">
+              <view>[{{poem.author_dynasty}}]</view>
+              <view class="margin-left-xs">{{poem.author_name}}</view>
+            </view>
+            <view class="text-grey text-lg margin-bottom" wx:for="{{poem.sentences}}" wx:for-item="sentence" wx:key="{{sentence}}" style="letter-spacing: 2rpx;text-indent: 20rpx;line-height: 60rpx;">
+              {{sentence}}
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item item-id="poem_author">
+      <scroll-view scroll-y class="poem-scroll">
+        <view class="cu-card case">
+          <view class="cu-item shadow">
+            <view class="justify-center flex color-orange margin-bottom-lg margin-top-df" style="font-size:44rpx">
+              <view class="">{{poem.author_name}}</view>
+              <view class="margin-lr-sm">·</view>
+              <view class="">{{poem.author_dynasty}}</view>
+            </view>
+
+            <view class="text-grey text-lg margin-bottom" wx:for="{{poem.author_abstract_parags}}" wx:for-item="parag" wx:key="{{parag}}" style="letter-spacing: 2rpx;text-indent: 20rpx;line-height: 60rpx;">
+              {{parag}}
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
 </view>
