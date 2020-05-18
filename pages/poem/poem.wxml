@@ -11,7 +11,7 @@
               <view>[{{poem.author_dynasty}}]</view>
               <view class="margin-left-xs">{{poem.author_name}}</view>
             </view>
-            <view class="text-grey text-lg justify-center flex" wx:for="{{poem.sentences}}" wx:for-item="sentence" wx:key="{{sentence}}" style="letter-spacing: 2rpx;text-indent: 20rpx;line-height: 66rpx;">
+            <view class=" text-lg justify-center flex" wx:for="{{poem.sentences}}" wx:for-item="sentence" wx:key="{{sentence}}" style="letter-spacing: 2rpx;text-indent: 20rpx;line-height: 66rpx;color:#666666">
               {{sentence}}
             </view>
           </view>
