@@ -1,39 +1,68 @@
-<view class="container bg-white">
-  <swiper class="padding" current-item-id="{{currentItemId}}">
-    <swiper-item item-id="poem_content">
-      <scroll-view scroll-y class="poem-scroll">
-        <view class="cu-card case">
-          <view class="cu-item shadow">
-            <view class="justify-center flex" style="font-size:44rpx">
-              <view>{{poem.title}}</view>
-            </view>
-            <view class="justify-center text-df color-orange flex margin-tb-sm" bindtap="swipeToAuthor">
-              <view>[{{poem.author_dynasty}}]</view>
-              <view class="margin-left-xs">{{poem.author_name}}</view>
-            </view>
-            <view class=" text-lg justify-center flex" wx:for="{{poem.sentences}}" wx:for-item="sentence" wx:key="{{sentence}}" style="letter-spacing: 2rpx;text-indent: 20rpx;line-height: 66rpx;color:#666666">
-              {{sentence}}
-            </view>
+<view class="container bg-white" style="height:100vh">
+  <scroll-view scroll-y style="height:100vh" bind:tap="ChangeBottomModal">
+    <view class="cu-card case">
+      <view class="cu-item shadow">
+        <view class="justify-center flex text-black" style="font-size:42rpx">
+          <view>{{poem.title}}</view>
+        </view>
+        <view class="justify-center color-orange flex margin-tb-sm" bindtap="swipeToAuthor">
+          <view>[{{poem.author_dynasty}}]</view>
+          <view class="margin-left-xs">{{poem.author_name}}</view>
+        </view>
+        <view class="justify-center margin-top" style="font-size: 40rpx">
+          <view class="justify-center flex text-grey" wx:for="{{poem.sentences}}" wx:for-item="sentence" wx:key="{{sentence}}" style="letter-spacing: 1.2rpx;text-size:40rpx;text-indent: 20rpx;line-height: 76rpx;color: #777777">
+            {{sentence}}
           </view>
         </view>
-      </scroll-view>
-    </swiper-item>
-    <swiper-item item-id="poem_author">
-      <scroll-view scroll-y class="poem-scroll">
-        <view class="cu-card case">
-          <view class="cu-item shadow">
-            <view class="justify-center flex color-orange margin-bottom-lg margin-top-df" style="font-size:44rpx">
-              <view class="">{{poem.author_name}}</view>
-              <view class="margin-lr-sm">·</view>
-              <view class="">{{poem.author_dynasty}}</view>
+      </view>
+      <view class="cu-item">
+        <view class="flex text-black text-df" catch:tap='void' style="width:750rpx">
+          <view class="margin-sm margin-left {{infoType=='author'?'text-orange':''}}" data-type='author' catch:tap="InfoTypeChange">作者</view>
+          <view class="margin-sm {{infoType=='annot'?'text-orange':''}}" data-type='annot' catch:tap="InfoTypeChange">注释</view>
+          <view class="margin-sm {{infoType=='trans'?'text-orange':''}}" data-type='trans' catch:tap="InfoTypeChange">译文</view>
+        </view>
+        <view wx:if="{{infoType=='author'}}" class="text-sm padding-lr">
+          <view style="{{fullAuthor?'':'height:100rpx;'}}" wx:if="{{poem.author_abstract}}">
+            <text class="cu-bar" wx:for="{{poem.author_abstract_parags}}" wx:for-item="parag" wx:key="{{parag}}" style="letter-spacing: 2rpx;text-indent: 20rpx;">{{parag}}</text>
+          </view>
+          <view wx:else>
+            <view class='cu-bar'>暂无作者信息</view>
+          </view>
+          <view class="bg-white cu-bar justify-end" style="min-height:50rpx">
+            <view catch:tap="showFullAuthor"  wx:if="{{poem.author_abstract&&!fullAuthor}}">
+              <text class="cuIcon-unfold bg-white margin-right-sm"></text>
+              <text>展开</text>
             </view>
+          </view>
 
-            <view class="text-grey text-lg margin-bottom" wx:for="{{poem.author_abstract_parags}}" wx:for-item="parag" wx:key="{{parag}}" style="letter-spacing: 2rpx;text-indent: 20rpx;line-height: 60rpx;">
-              {{parag}}
-            </view>
-          </view>
         </view>
-      </scroll-view>
-    </swiper-item>
-  </swiper>
+        <view wx:if="{{infoType=='annot'}}" class="text-sm padding-lr">
+          <view class='cu-bar'>注释，施工中～</view>
+          <view class="bg-white cu-bar justify-end" style="min-height:50rpx"></view>
+        </view>
+        <view wx:if="{{infoType=='trans'}}" class="text-sm padding-lr">
+          <view class='cu-bar'>译文，施工中～</view>
+          <view class="bg-white cu-bar justify-end" style="min-height:50rpx"></view>
+        </view>
+      </view>
+    </view>
+    <view class="cu-bar"></view>
+  </scroll-view>
+
+  <view class="cu-bar foot animation-slide-bottom bg-white" style="{{showBottomModal?'':'bottom:-120rpx;'}};font-size:34rpx;transition:all .4s;" catch:tap="" data-class="slide-bottom">
+    <view class="flex justify-center margin-tb-xs" style="width:750rpx">
+      <view class='flex-sub grid col-1 justify-center' catch:tap="learnPoem">
+        <text class="cuIcon-add margin-bottom-xs" style="font-size:40rpx"></text>
+        <view class="text-center" style="font-size:24rpx">添加背诵</view>
+      </view>
+      <view class='flex-sub grid col-1 justify-center' catch:tap="likePoem">
+        <text class="cuIcon-like margin-bottom-xs" style="font-size:40rpx"></text>
+        <view class="text-center" style="font-size:24rpx">收藏</view>
+      </view>
+      <view class='flex-sub grid col-1 justify-center' catch:tap="forwardPoem">
+        <text class="cuIcon-forward margin-bottom-xs" style="font-size:40rpx"></text>
+        <view class="text-center" style="font-size:24rpx">分享</view>
+      </view>
+    </view>
+  </view>
 </view>
